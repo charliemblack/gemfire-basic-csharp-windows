@@ -1,9 +1,13 @@
 # GemFire .NET example
 
-In this example we explore a simple GemFire C# client.   The client doesn't do much more than do some basic get and put operations with a basic query.
+In this example we explore a simple GemFire C# client project.   The client doesn't do much:
+
+* Dictionary / Hash Map operations
+* Bulk insert / update using the GemFire region interface
+* Shows OQL Query.
 
 # Project Structure
-I created this Visual Studio Project in my `c:\dev\` directory with the following contents:
+I created this as a Visual Studio Project so build / configuration automation isn't going to be high.  To reduce the overhead I created the prohect in my `c:\dev\` directory with the following contents:
 
 ```
 ├───gemfire-basic-csharp-windows
@@ -12,6 +16,7 @@ I created this Visual Studio Project in my `c:\dev\` directory with the followin
 │   └───scripts // Some basic MS-DOS scripts to control GemFire
 └───pivotal-gemfire-native-9.1.1-build.2-Windows-64bit  // The GemFire C++ and C# libraries
 ```
+I one follows that setup things should just work.   I followed this pattern to hopefully make it easier for the many Visual Studio users out there.   If I could have done something cooler let me know.   I typically spend my days doing Java development, so go easy on me.
 
 # The Scripts
 
@@ -30,12 +35,16 @@ Then go download the latest version of GemFire from Pivotal : https://network.pi
 
 Once that is done to make our life easier lets add the Java and GemFire bin directories to the path.
 
-example
+Example Path:
 ```
 set PATH=C:\dev\Java\jdk1.8.0_xyz\bin;C:\dev\pivotal-gemfire-9.x.y\bin;%PATH%
 ```
 
 Change Directory to the scripts and run the `startGemFire.bat` and GemFire will be up and running.   Double check and make sure Windows firewall didn't block Java from opening up the required ports.
+
+The start GemFire script will launch 3 Java processes.  
+1. `Locator` - A locator is the process that allows clients and servers to find each other in a dynamic way.
+2. `Server` - The script launches two of these processes.   The `server` process is responsible for caching, persisting handling data.   
 
 If this is the first time we started GemFire or fresh launch after a `clear.bat` we need to add the regions that the project will be using.   This is done with the `configure.bat` script.
 

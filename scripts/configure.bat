@@ -1,0 +1,10 @@
+@ECHO OFF
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+PUSHD %~dp0..
+IF NOT DEFINED APP_HOME SET APP_HOME=%CD%
+POPD
+set GFSH_COMMAND=-e "connect --locators=localhost[10334]"
+set GFSH_COMMAND=%GFSH_COMMAND% -e "create region --name=Region1 --type=PARTITION_OVERFLOW"
+
+gfsh %GFSH_COMMAND%

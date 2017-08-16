@@ -13,7 +13,8 @@ I created this Visual Studio Project in my `c:\dev\` directory with the followin
 └───pivotal-gemfire-native-9.1.1-build.2-Windows-64bit  // The GemFire C++ and C# libraries
 ```
 
-# Starting and Shutting down GemFire
+# The Scripts
+
 In the `scripts` folder there are a couple of commands:
 * `clear.bat` - Removes all of the contents of the data directory.
 * `configure.bat` - Creates the regions needed for the sample code.

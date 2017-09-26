@@ -24,7 +24,7 @@ namespace GemFireSampleApplication
 
                 Cache cache = cacheFactory.Create();
 
-                RegionFactory regionFactory = cache.CreateRegionFactory(RegionShortcut.CACHING_PROXY);
+                RegionFactory regionFactory = cache.CreateRegionFactory(RegionShortcut.PROXY);
                 IRegion<int, SampleDataObject> regionInstanceType =  regionFactory.Create<int, SampleDataObject>("Region1");
                 IDictionary<int, SampleDataObject> region = regionInstanceType;
 

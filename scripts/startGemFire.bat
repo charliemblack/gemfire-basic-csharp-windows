@@ -28,7 +28,7 @@ set COMMON_LOCATOR_ITEMS=%COMMON_LOCATOR_ITEMS% %DEFAULT_JVM_OPTS%
 
 mkdir %APP_HOME%\data\locator1
 
-call gfsh -e "start locator --name=locator1 --dir=%APP_HOME%/data/locator1 --port=10334 %COMMON_LOCATOR_ITEMS%" -e "configure pdx --read-serialized=true"
+call gfsh -e "start locator --name=locator1 --dir=%APP_HOME%/data/locator1 --port=10334 %COMMON_LOCATOR_ITEMS%"  -e "configure pdx --read-serialized=true --disk-store=DEFAULT"
 
 mkdir %APP_HOME%\data\server1
 mkdir %APP_HOME%\data\server2
